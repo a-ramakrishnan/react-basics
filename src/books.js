@@ -2,7 +2,7 @@ import React from "react";
 
 const Books = ({ name, author }) => {
   const clickHandler = (e) => {
-    console.log(e);
+    console.log(e.target);
     alert("Hit it");
   };
   return (
