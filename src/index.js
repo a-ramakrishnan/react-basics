@@ -1,17 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDom from "react-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import "./index.css";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+import Books from "./books";
+import { books } from "./bookData";
+
+// const mahaBook = { name: "Mahabharata", author: "Vyasa" };
+// const ramaBook = { name: "Ramayana", author: "Valmiki" };
+// const ringBook = { name: "Lord of the Rings", author: "Tolkien" };
+
+function BookList() {
+  // books.map((book) => {
+  //   console.log(book.name, book.author);
+  // });
+
+  return (
+    <div className="booklist">
+      {/*<Books bookname={mahaBook.name} author={mahaBook.author} />*/}
+      {/*<Books bookname={ramaBook.name} author={ramaBook.author} />*/}
+      {/*<Books bookname={ringBook.name} author={ringBook.author} />*/}
+      {/*{books.map((book) => {*/}
+      {/*  return (*/}
+      {/*    <Books key={book.id} bookname={book.name} author={book.author} />*/}
+      {/*  );*/}
+      {/*})}*/}
+      {books.map((book) => {
+        return <Books key={book.id} {...book} />;
+      })}
+    </div>
+  );
+}
+
+ReactDom.render(<BookList />, document.getElementById("root"));
